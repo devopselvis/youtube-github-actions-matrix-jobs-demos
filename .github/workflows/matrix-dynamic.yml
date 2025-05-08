@@ -1,4 +1,4 @@
-name: Matrix Node Test
+name: Matrix Dynamic
 
 on:
   workflow_dispatch:
