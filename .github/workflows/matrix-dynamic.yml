@@ -1,0 +1,21 @@
+name: Matrix Node Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set.outputs.matrix }}
+    steps:
+      - id: set
+        run: echo "matrix={\"os\":[\"ubuntu-latest\",\"windows-latest\"]}" >> $GITHUB_OUTPUT
+
+  build:
+    needs: generate
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix: ${{ fromJson(needs.generate.outputs.matrix) }}
+    steps:
+      - run: echo "Running on ${{ matrix.os }}"
