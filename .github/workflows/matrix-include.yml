@@ -1,4 +1,4 @@
-name: Matrix Node Test
+name: Matrix Include
 
 on:
   workflow_dispatch:
