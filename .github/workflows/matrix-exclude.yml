@@ -1,4 +1,4 @@
-name: Matrix Node Test
+name: Matrix Exclude
 
 on:
   workflow_dispatch:
